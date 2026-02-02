@@ -7,9 +7,21 @@ type ControlsProps = {
   onIncrement: () => void;
 };
 
-const Controls = ({ quantity, onDecrement, onIncrement }: ControlsProps) => {
+const Controls = ({
+  quantity,
+  onDecrement,
+  onIncrement,
+  className,
+}: ControlsProps & { className?: string }) => {
   return (
-    <div className={clsx(styles.base, styles.withCount, styles.controls)}>
+    <div
+      className={clsx(
+        styles.base,
+        styles.withCount,
+        styles.controls,
+        className
+      )}
+    >
       <button
         type="button"
         className={styles.controlIcon}
@@ -20,7 +32,7 @@ const Controls = ({ quantity, onDecrement, onIncrement }: ControlsProps) => {
           alt="Decrement Quantity"
         />
       </button>
-      <span>{quantity}</span>
+      <span>{quantity === 0 ? 1 : quantity}</span>
       <button
         type="button"
         className={styles.controlIcon}
@@ -40,11 +52,15 @@ export const AddToCart = ({
   onDecrement,
   onIncrement,
 }: ControlsProps) => {
-  if (quantity === 0) {
-    return (
+  return (
+    <div className={styles.wrapper}>
       <button
         type="button"
-        className={clsx(styles.base, styles.empty)}
+        className={clsx(
+          styles.base,
+          styles.empty,
+          quantity === 0 ? styles.visible : styles.hidden
+        )}
         onClick={onIncrement}
       >
         <div className={styles.content}>
@@ -52,14 +68,12 @@ export const AddToCart = ({
           Add to Cart
         </div>
       </button>
-    );
-  }
-
-  return (
-    <Controls
-      quantity={quantity}
-      onDecrement={onDecrement}
-      onIncrement={onIncrement}
-    />
+      <Controls
+        quantity={quantity}
+        onDecrement={onDecrement}
+        onIncrement={onIncrement}
+        className={clsx(quantity === 0 ? styles.hidden : styles.visible)}
+      />
+    </div>
   );
 };
