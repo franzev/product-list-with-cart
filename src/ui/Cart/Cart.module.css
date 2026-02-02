@@ -50,18 +50,20 @@
   align-items: center;
 }
 
-.orderTotal span {
+.orderTotal dt,
+.orderTotal dd {
+  margin: 0;
   color: var(--color-rose-900);
   font-size: var(--text-preset-4-size);
   line-height: var(--text-preset-4-line-height);
   letter-spacing: var(--text-preset-4-letter-spacing);
 }
 
-.orderTotal span:first-child {
+.orderTotal dt {
   font-weight: var(--text-preset-4-weight);
 }
 
-.orderTotal span:last-child {
+.orderTotal dd {
   font-weight: var(--text-preset-2-weight);
   font-size: var(--text-preset-2-size);
   line-height: var(--text-preset-2-line-height);

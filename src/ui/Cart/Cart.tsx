@@ -5,11 +5,12 @@ import styles from "./Cart.module.css";
 
 const EmptyCart = () => {
   return (
-    <div className={styles.empty}>
+    <div className={styles.empty} role="status" aria-live="polite">
       <div className={styles.emptyImage}>
         <img
           src="/assets/images/illustration-empty-cart.svg"
-          alt="Empty Cart Illustration"
+          alt=""
+          aria-hidden="true"
         />
       </div>
       <span>Your added items will appear here</span>
@@ -27,10 +28,10 @@ export const OrderTotal = ({ items }: OrderTotalProps) => {
     .toFixed(2);
 
   return (
-    <div className={styles.orderTotal}>
-      <span>Order Total</span>
-      <span>${orderTotal}</span>
-    </div>
+    <dl className={styles.orderTotal}>
+      <dt>Order Total</dt>
+      <dd aria-label={`Order total: $${orderTotal}`}>${orderTotal}</dd>
+    </dl>
   );
 };
 
@@ -46,8 +47,12 @@ export const CartSection = ({
   const filteredItems = items.filter((item) => item.quantity > 0);
 
   return (
-    <aside className={styles.base}>
-      <h2>Your Cart ({filteredItems.length})</h2>
+    <aside
+      className={styles.base}
+      aria-labelledby="cart-heading"
+      aria-live="polite"
+    >
+      <h2 id="cart-heading">Your Cart ({filteredItems.length})</h2>
 
       {filteredItems.length === 0 ? (
         <EmptyCart />
@@ -59,10 +64,14 @@ export const CartSection = ({
 
           <OrderTotal items={items} />
 
-          <div className={styles.carbonNeutral}>
+          <div
+            className={styles.carbonNeutral}
+            role="note"
+            aria-label="Carbon neutral delivery"
+          >
             <img
               src="/assets/images/icon-carbon-neutral.svg"
-              alt="Carbon Neutral"
+              alt=""
               aria-hidden="true"
             />
             <span>
