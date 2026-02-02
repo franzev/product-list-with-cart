@@ -1,0 +1,87 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-300);
+  gap: var(--spacing-300);
+  background-color: var(--color-white);
+  border-radius: var(--spacing-150);
+  width: 384px;
+}
+
+.base h2 {
+  color: var(--color-primary);
+  font-weight: var(--text-preset-2-weight);
+  font-size: var(--text-preset-2-size);
+  line-height: var(--text-preset-2-line-height);
+  letter-spacing: var(--text-preset-2-letter-spacing);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-200);
+  text-align: center;
+  padding-block: var(--spacing-200);
+}
+
+.emptyImage {
+  width: 128px;
+  height: 128px;
+}
+
+.empty span {
+  color: var(--color-rose-500);
+  font-weight: var(--text-preset-4-bold-weight);
+  font-size: var(--text-preset-4-size);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-4-letter-spacing);
+}
+
+.orderTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderTotal span {
+  color: var(--color-rose-900);
+  font-size: var(--text-preset-4-size);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-4-letter-spacing);
+}
+
+.orderTotal span:first-child {
+  font-weight: var(--text-preset-4-weight);
+}
+
+.orderTotal span:last-child {
+  font-weight: var(--text-preset-2-weight);
+  font-size: var(--text-preset-2-size);
+  line-height: var(--text-preset-2-line-height);
+  letter-spacing: var(--text-preset-2-letter-spacing);
+}
+
+.carbonNeutral {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-100);
+  background-color: var(--color-rose-50);
+  padding: var(--spacing-200);
+  border-radius: var(--spacing-100);
+}
+
+.carbonNeutral img {
+  width: 20px;
+  height: 20px;
+}
+
+.carbonNeutral span {
+  font-size: var(--text-preset-4-size);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-4-letter-spacing);
+}
+
+.carbonNeutral strong {
+  font-weight: var(--text-preset-4-bold-weight);
+}
