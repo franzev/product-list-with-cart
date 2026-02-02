@@ -23,9 +23,20 @@
 
   --text-preset-3-weight: 600;
   --text-preset-3-size: 1rem;
+  --text-preset-4-bold-weight: semibold;
+  --text-preset-4-bold-size: 0.875rem;
 
   --color-primary: var(--color-red);
   --color-primary-hover: color-mix(in srgb, var(--color-red) 90%, var(--color-black) 10%); 
+
+  --spacing-1100: 5.5rem;
+  --spacing-500: 2.5rem;
+  --spacing-400: 2rem;
+  --spacing-300: 1.5rem;
+  --spacing-200: 1rem;
+  --spacing-150: 0.75rem;
+  --spacing-100: 0.5rem;
+  --spacing-50: 0.25rem;
 }
 
 *, *::before, *::after {
