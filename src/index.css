@@ -1,8 +1,6 @@
 :root {
-  --font-family: 'Red Hat Text', sans-serif;
+  --font-family: "Red Hat Text", sans-serif;
   font-family: var(--font-family);
-  line-height: 1.5;
-  font-weight: 400;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,13 +19,26 @@
   --color-black: hsl(0, 0%, 0%);
   --color-white: hsl(0, 0%, 100%);
 
+  --text-preset-2-weight: 700;
+  --text-preset-2-size: 1.5rem;
+  --text-preset-2-line-height: 1.34;
+  --text-preset-2-letter-spacing: 0.02rem;
+
   --text-preset-3-weight: 600;
   --text-preset-3-size: 1rem;
-  --text-preset-4-bold-weight: semibold;
-  --text-preset-4-bold-size: 0.875rem;
+
+  --text-preset-4-size: 0.875rem;
+  --text-preset-4-weight: 500;
+  --text-preset-4-line-height: 1.358;
+  --text-preset-4-letter-spacing: -0.0056rem;
+  --text-preset-4-bold-weight: 600;
 
   --color-primary: var(--color-red);
-  --color-primary-hover: color-mix(in srgb, var(--color-red) 90%, var(--color-black) 10%); 
+  --color-primary-hover: color-mix(
+    in srgb,
+    var(--color-red) 90%,
+    var(--color-black) 10%
+  );
 
   --spacing-1100: 5.5rem;
   --spacing-500: 2.5rem;
@@ -39,8 +50,14 @@
   --spacing-50: 0.25rem;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-rose-50);
 }
