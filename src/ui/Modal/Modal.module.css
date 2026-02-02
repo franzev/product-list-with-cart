@@ -20,6 +20,28 @@
   }
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slideDownDesktop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -50,20 +72,14 @@
   transform: translateY(100%);
 }
 
-.dialog[open] {
-  opacity: 0;
-  transform: translateY(100%);
-}
-
 .dialog[open].open {
   animation: slideUp 0.4s ease-out forwards;
 }
 
-.dialog[open].closing,
-.dialog[open].open.closing {
+.dialog[open].closing {
   opacity: 1;
   transform: translateY(0);
-  animation: fadeOut 0.4s ease-in forwards;
+  animation: slideDown 0.4s ease-in forwards;
 }
 
 @media (min-width: 48rem) {
@@ -80,25 +96,25 @@
     animation: slideUpDesktop 0.4s ease-out forwards;
   }
 
-  .dialog[open].closing,
-  .dialog[open].open.closing {
+  .dialog[open].closing {
     opacity: 1;
     transform: translateY(0);
-    animation: fadeOut 0.4s ease-in forwards;
+    animation: slideDownDesktop 0.4s ease-in forwards;
   }
 }
 
 .dialog::backdrop {
   background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
 }
 
 .dialog[open].open::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
   animation: fadeIn 0.4s ease-out forwards;
 }
 
-.dialog[open].closing::backdrop,
-.dialog[open].open.closing::backdrop {
+.dialog[open].closing::backdrop {
   animation: fadeOut 0.4s ease-in forwards;
 }
 
@@ -115,26 +131,14 @@
     transform: translateY(0);
   }
 
-  .dialog[open].closing,
-  .dialog[open].open.closing {
-    animation: none;
-    opacity: 0;
-  }
-
   .dialog[open].open::backdrop {
     animation: none;
     background-color: rgba(0, 0, 0, 0.5);
   }
 
-  .dialog[open].closing::backdrop,
-  .dialog[open].open.closing::backdrop {
+  .dialog[open].closing,
+  .dialog[open].closing::backdrop {
     animation: none;
-    background-color: rgba(0, 0, 0, 0);
-  }
-
-  @media (min-width: 48rem) {
-    .dialog[open].open {
-      transform: translateY(0);
-    }
+    opacity: 0;
   }
 }
