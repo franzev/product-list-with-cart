@@ -50,6 +50,10 @@ export const CartSection = ({
   onConfirmOrder,
 }: CartSectionProps) => {
   const filteredItems = items.filter((item) => item.quantity > 0);
+  const totalQuantity = filteredItems.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
 
   return (
     <aside
@@ -57,7 +61,7 @@ export const CartSection = ({
       aria-labelledby="cart-heading"
       aria-live="polite"
     >
-      <h2 id="cart-heading">Your Cart ({filteredItems.length})</h2>
+      <h2 id="cart-heading">Your Cart ({totalQuantity})</h2>
 
       {filteredItems.length === 0 ? (
         <EmptyCart />
