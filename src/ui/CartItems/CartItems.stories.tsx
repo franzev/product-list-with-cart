@@ -15,6 +15,7 @@ const meta = {
       { product: productsData[1], quantity: 4 },
       { product: productsData[8], quantity: 2 },
     ],
+    onRemoveItem: () => {},
   },
   decorators: [
     (Story) => (
