@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
-import { AddToCart } from './AddToCart';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
+import { AddToCart } from "./AddToCart";
 
 const meta = {
-  title: 'ui/AddToCart',
+  title: "ui/AddToCart",
   component: AddToCart,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
-  args: { 
-    onClick: fn(),
-    count: 0,
-    children: 'Add to Cart',
+  tags: ["autodocs"],
+  args: {
+    quantity: 0,
+    onDecrement: fn(),
+    onIncrement: fn(),
   },
 } satisfies Meta<typeof AddToCart>;
 
@@ -23,6 +23,6 @@ export const Default: Story = {};
 
 export const WithCount: Story = {
   args: {
-    count: 2,
+    quantity: 2,
   },
 };
