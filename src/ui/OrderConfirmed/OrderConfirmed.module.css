@@ -1,0 +1,113 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+  background-color: var(--color-white);
+  border-radius: var(--spacing-150);
+  padding: var(--spacing-500);
+  width: 100%;
+}
+
+@media (min-width: 64rem) {
+  .base {
+    width: 592px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
+}
+
+.header h2 {
+  color: var(--color-rose-900);
+  font-size: var(--text-preset-1-size);
+  line-height: var(--text-preset-1-line-height);
+  letter-spacing: var(--text-preset-1-letter-spacing);
+  font-weight: var(--text-preset-1-weight);
+}
+
+.header span {
+  color: var(--color-rose-500);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.icon {
+  width: 42px;
+  height: 42px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
+  background-color: var(--color-rose-50);
+  padding: var(--spacing-300);
+  border-radius: var(--spacing-100);
+}
+
+.base ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.itemContent {
+  display: flex;
+  gap: var(--spacing-200);
+  font-size: var(--text-preset-4-size);
+}
+
+.item img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--spacing-50);
+}
+
+.itemName {
+  color: var(--color-rose-900);
+  font-weight: var(--text-preset-4-bold-weight);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-4-letter-spacing);
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.qtyAndPrice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-100);
+}
+
+.quantity {
+  color: var(--color-primary);
+  font-weight: var(--text-preset-4-bold-weight);
+}
+
+.price {
+  color: var(--color-rose-500);
+}
+
+.total {
+  color: var(--color-rose-500);
+  font-weight: var(--text-preset-4-bold-weight);
+}
