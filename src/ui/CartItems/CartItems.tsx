@@ -17,7 +17,7 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
   return (
     <ul className={styles.base}>
       {filteredItems.map((item, index) => (
-        <Fragment key={`${index}-${item.product.name}`}>
+        <Fragment key={item.product.id}>
           <li className={styles.item}>
             <div className={styles.itemContent}>
               <span className={styles.itemName}>{item.product.name}</span>

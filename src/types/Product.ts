@@ -1,4 +1,5 @@
 export type Product = {
+  id: string;
   image: {
     thumbnail: string;
     mobile: string;
