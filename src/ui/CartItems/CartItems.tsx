@@ -8,7 +8,7 @@ export type CartItemsProps = {
 };
 
 export const Separator = () => {
-  return <div className={styles.separator} />;
+  return <div className={styles.separator} aria-hidden="true" />;
 };
 
 export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
@@ -23,11 +23,26 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
               <span className={styles.itemName}>{item.product.name}</span>
 
               <div className={styles.qtyAndPrice}>
-                <span className={styles.quantity}>{item.quantity}x</span>
-                <span className={styles.price}>
+                <span
+                  className={styles.quantity}
+                  aria-label={`Quantity: ${item.quantity}`}
+                >
+                  {item.quantity}x
+                </span>
+                <span
+                  className={styles.price}
+                  aria-label={`Price per item: $${item.product.price.toFixed(
+                    2
+                  )}`}
+                >
                   @ ${item.product.price.toFixed(2)}
                 </span>
-                <span className={styles.total}>
+                <span
+                  className={styles.total}
+                  aria-label={`Item total: $${(
+                    item.quantity * item.product.price
+                  ).toFixed(2)}`}
+                >
                   ${(item.quantity * item.product.price).toFixed(2)}
                 </span>
               </div>
@@ -46,7 +61,7 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
             </button>
           </li>
           {filteredItems.length > 1 && index !== filteredItems.length - 1 && (
-            <li>
+            <li aria-hidden="true">
               <Separator />
             </li>
           )}
