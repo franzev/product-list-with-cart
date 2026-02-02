@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { CartItem, Product } from "../../types";
 import { AddToCart } from "../AddToCart";
 import styles from "./ProductCard.module.css";
@@ -16,12 +17,22 @@ export const ProductCard = ({
   return (
     <article className={styles.base} aria-label={product.name}>
       <div className={styles.imageAndControls}>
-        <img
-          src={product.image.mobile}
-          alt={`${product.name} - ${product.category}`}
-          className={quantity > 0 ? styles.withQuantity : undefined}
-          loading="lazy"
-        />
+        <div
+          className={clsx(
+            styles.imageContainer,
+            quantity > 0 ? styles.withQuantity : undefined
+          )}
+        >
+          <picture>
+            <source media="(min-width: 90rem)" srcSet={product.image.desktop} />
+            <source media="(min-width: 48rem)" srcSet={product.image.tablet} />
+            <img
+              src={product.image.mobile}
+              alt={`${product.name} - ${product.category}`}
+              loading="lazy"
+            />
+          </picture>
+        </div>
         <AddToCart
           quantity={quantity}
           onDecrement={() => onDecrement(product)}
