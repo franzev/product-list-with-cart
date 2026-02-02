@@ -61,6 +61,7 @@
 .quantity {
   color: var(--color-primary);
   font-weight: var(--text-preset-4-bold-weight);
+  width: 1.313rem;
 }
 
 .price {
