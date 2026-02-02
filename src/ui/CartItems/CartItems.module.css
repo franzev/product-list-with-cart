@@ -8,6 +8,7 @@
 .item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: var(--spacing-100);
 }
 
@@ -28,6 +29,20 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  border-radius: calc(infinity * 1px);
+  line-height: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.item button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item button {
+    transition: none;
+  }
 }
 
 .itemName {
