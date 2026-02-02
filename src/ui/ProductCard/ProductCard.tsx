@@ -1,10 +1,8 @@
-import type { Product } from "../../types";
+import type { CartItem, Product } from "../../types";
 import { AddToCart } from "../AddToCart";
 import styles from "./ProductCard.module.css";
 
-type ProductCardProps = {
-  product: Product;
-  quantity: number;
+type ProductCardProps = CartItem & {
   onDecrement: (product: Product) => void;
   onIncrement: (product: Product) => void;
 };
