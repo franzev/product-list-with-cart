@@ -6,22 +6,29 @@ import styles from "./OrderConfirmed.module.css";
 
 type OrderConfirmedProps = {
   items: CartItem[];
+  onStartNewOrder?: () => void;
 };
 
-export const OrderConfirmed = ({ items }: OrderConfirmedProps) => {
+export const OrderConfirmed = ({
+  items,
+  onStartNewOrder,
+}: OrderConfirmedProps) => {
   return (
     <div className={styles.base}>
       <div className={styles.header}>
         <img
           className={styles.icon}
           src="/assets/images/icon-order-confirmed.svg"
-          alt="Order Confirmed Icon"
+          alt=""
+          aria-hidden="true"
         />
 
         <div className={styles.title}>
-          <h2>Order Confirmed</h2>
+          <h2 id="order-confirmed-title">Order Confirmed</h2>
 
-          <span>We hope you enjoy your food!</span>
+          <span id="order-confirmed-description">
+            We hope you enjoy your food!
+          </span>
         </div>
       </div>
 
@@ -67,7 +74,7 @@ export const OrderConfirmed = ({ items }: OrderConfirmedProps) => {
         <OrderTotal items={items} />
       </div>
 
-      <Button>Start New Order</Button>
+      <Button onClick={onStartNewOrder}>Start New Order</Button>
     </div>
   );
 };
