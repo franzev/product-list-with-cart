@@ -22,6 +22,7 @@
   height: auto;
   border-radius: var(--spacing-100);
   border: 2px solid transparent;
+  transition: border-color 0.2s ease-out;
 }
 
 img.withQuantity {
@@ -61,4 +62,10 @@ img.withQuantity {
 
 .price {
   color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageAndControls > img {
+    transition: none;
+  }
 }
