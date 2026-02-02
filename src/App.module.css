@@ -1,0 +1,22 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-400);
+  padding: var(--spacing-300);
+}
+
+@media (min-width: 64rem) {
+  .base {
+    flex-direction: row;
+    justify-content: center;
+    padding-inline: var(--spacing-500);
+    padding-block: var(--spacing-1100);
+  }
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+}
