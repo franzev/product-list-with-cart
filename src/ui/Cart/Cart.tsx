@@ -5,7 +5,12 @@ import styles from "./Cart.module.css";
 
 const EmptyCart = () => {
   return (
-    <div className={styles.empty} role="status" aria-live="polite">
+    <div
+      className={styles.empty}
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <div className={styles.emptyImage}>
         <img
           src="/assets/images/illustration-empty-cart.svg"
@@ -13,7 +18,7 @@ const EmptyCart = () => {
           aria-hidden="true"
         />
       </div>
-      <span>Your added items will appear here</span>
+      <p>Your added items will appear here</p>
     </div>
   );
 };
