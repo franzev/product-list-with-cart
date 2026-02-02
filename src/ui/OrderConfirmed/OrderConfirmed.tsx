@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { CartItem } from "../../types";
 import { Button } from "../Button";
 import { OrderTotal } from "../Cart";
@@ -35,8 +36,8 @@ export const OrderConfirmed = ({
       <div className={styles.inner}>
         <ul className={styles.items}>
           {items.map((item, index) => (
-            <>
-              <li className={styles.item} key={`${index}-${item.product.name}`}>
+            <Fragment key={item.product.id}>
+              <li className={styles.item}>
                 <div className={styles.itemContent}>
                   <img
                     src={item.product.image.thumbnail}
@@ -65,7 +66,7 @@ export const OrderConfirmed = ({
                   <Separator />
                 </li>
               )}
-            </>
+            </Fragment>
           ))}
         </ul>
 

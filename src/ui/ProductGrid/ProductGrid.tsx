@@ -20,9 +20,9 @@ export const ProductGrid = ({
 }: ProductGridProps) => {
   return (
     <div className={styles.base}>
-      {items.map((item, index) => (
+      {items.map((item) => (
         <ProductCard
-          key={`${index}-${item.product.name}`}
+          key={item.product.id}
           product={item.product}
           quantity={item.quantity}
           onDecrement={() => onDecrement(item.product)}
