@@ -5,7 +5,7 @@
   width: 100%;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 90rem) {
   .base {
     width: 250px;
   }
