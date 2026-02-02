@@ -3,13 +3,15 @@
   flex-direction: column;
   gap: var(--spacing-400);
   background-color: var(--color-white);
-  border-radius: var(--spacing-150);
+  border-top-left-radius: var(--spacing-150);
+  border-top-right-radius: var(--spacing-150);
   padding: var(--spacing-500);
   width: 100%;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .base {
+    border-radius: var(--spacing-150);
     width: 592px;
   }
 }
