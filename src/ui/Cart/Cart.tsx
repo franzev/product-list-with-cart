@@ -34,7 +34,15 @@ export const OrderTotal = ({ items }: OrderTotalProps) => {
   );
 };
 
-export const CartSection = ({ items, onRemoveItem }: CartItemsProps) => {
+type CartSectionProps = CartItemsProps & {
+  onConfirmOrder?: () => void;
+};
+
+export const CartSection = ({
+  items,
+  onRemoveItem,
+  onConfirmOrder,
+}: CartSectionProps) => {
   const filteredItems = items.filter((item) => item.quantity > 0);
 
   return (
@@ -55,13 +63,14 @@ export const CartSection = ({ items, onRemoveItem }: CartItemsProps) => {
             <img
               src="/assets/images/icon-carbon-neutral.svg"
               alt="Carbon Neutral"
+              aria-hidden="true"
             />
             <span>
               This is a <strong>carbon-neutral</strong> delivery
             </span>
           </div>
 
-          <Button>Confirm Order</Button>
+          <Button onClick={onConfirmOrder}>Confirm Order</Button>
         </>
       )}
     </aside>
