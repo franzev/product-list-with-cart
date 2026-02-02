@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { fn } from "storybook/test";
-import productsData from "../../../data.json";
+import { multipleItemsCart } from "../../mocks/fixtures";
 import { Button } from "../Button";
 import { OrderConfirmed } from "../OrderConfirmed";
 import { Modal } from "./Modal";
@@ -68,12 +68,6 @@ export const WithOrderConfirmed: Story = {
       const [isOpen, setIsOpen] = useState(false);
       const { args } = context;
 
-      const orderItems = [
-        { product: productsData[3], quantity: 1 },
-        { product: productsData[1], quantity: 4 },
-        { product: productsData[8], quantity: 2 },
-      ];
-
       return (
         <>
           <Button onClick={() => setIsOpen(true)}>Confirm Order</Button>
@@ -87,7 +81,7 @@ export const WithOrderConfirmed: Story = {
                 descriptionId: "order-confirmed-description",
                 children: (
                   <OrderConfirmed
-                    items={orderItems}
+                    items={multipleItemsCart}
                     onStartNewOrder={() => setIsOpen(false)}
                   />
                 ),

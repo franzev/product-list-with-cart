@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ProductCard } from "./ProductCard";
-import productsData from "../../../data.json";
+import { waffleProduct, macaronProduct } from "../../mocks/fixtures";
 import { fn } from "storybook/test";
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
   },
   tags: ["autodocs"],
   args: {
-    product: productsData[0],
+    product: waffleProduct,
     quantity: 0,
     onDecrement: fn(),
     onIncrement: fn(),
@@ -25,7 +25,7 @@ export const Default: Story = {};
 
 export const WithQuantity: Story = {
   args: {
-    product: productsData[2],
+    product: macaronProduct,
     quantity: 3,
   },
 };

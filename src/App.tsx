@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { CartSection, ProductGrid, Modal, OrderConfirmed } from "./ui";
 import styles from "./App.module.css";
-import productsData from "../data.json";
-import type { Product } from "./types";
-import type { CartItem } from "./types";
+import { initialCartItems, initialProducts } from "./mocks";
+import type { CartItem, Product } from "./types";
+import { CartSection, Modal, OrderConfirmed, ProductGrid } from "./ui";
 
 type ProductItem = {
   product: Product;
@@ -11,13 +10,8 @@ type ProductItem = {
 };
 
 function App() {
-  const [products, setProducts] = useState<ProductItem[]>(
-    productsData.map((product) => ({
-      product,
-      quantity: 0,
-    }))
-  );
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [products, setProducts] = useState<ProductItem[]>(initialProducts);
+  const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleIncrement = (product: Product) => {
