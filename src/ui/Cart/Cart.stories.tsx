@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CartSection } from "./Cart";
-import productsData from "../../../data.json";
+import { emptyCart, multipleItemsCart } from "../../mocks/fixtures";
 import { fn } from "storybook/test";
 
 const meta = {
@@ -18,7 +18,7 @@ const meta = {
     ),
   ],
   args: {
-    items: [],
+    items: emptyCart,
     onRemoveItem: fn(),
   },
 } satisfies Meta<typeof CartSection>;
@@ -30,10 +30,6 @@ export const Empty: Story = {};
 
 export const WithItems: Story = {
   args: {
-    items: [
-      { product: productsData[3], quantity: 1 },
-      { product: productsData[1], quantity: 4 },
-      { product: productsData[8], quantity: 2 },
-    ],
+    items: multipleItemsCart,
   },
 };

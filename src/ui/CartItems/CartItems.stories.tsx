@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CartItems } from "./CartItems";
-import productsData from "../../../data.json";
+import { multipleItemsCart } from "../../mocks/fixtures";
 
 const meta = {
   title: "ui/CartItems",
@@ -10,11 +10,7 @@ const meta = {
   },
   tags: ["autodocs"],
   args: {
-    items: [
-      { product: productsData[3], quantity: 1 },
-      { product: productsData[1], quantity: 4 },
-      { product: productsData[8], quantity: 2 },
-    ],
+    items: multipleItemsCart,
     onRemoveItem: () => {},
   },
   decorators: [

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import productsData from "../../../data.json";
+import { multipleItemsCart } from "../../mocks/fixtures";
 import { OrderConfirmed } from "./OrderConfirmed";
 
 const meta = {
@@ -10,11 +10,7 @@ const meta = {
   },
   tags: ["autodocs"],
   args: {
-    items: [
-      { product: productsData[3], quantity: 1 },
-      { product: productsData[1], quantity: 4 },
-      { product: productsData[8], quantity: 2 },
-    ],
+    items: multipleItemsCart,
   },
 } satisfies Meta<typeof OrderConfirmed>;
 
