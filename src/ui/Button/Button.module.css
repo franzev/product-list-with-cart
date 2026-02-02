@@ -1,0 +1,16 @@
+.base {
+  font-family: var(--font-family);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  font-weight: var(--text-preset-3-weight);
+  font-size: var(--text-preset-3-size);
+  border-radius: calc(infinity * 1px);
+  cursor: pointer;
+}
+
+.base:hover {
+  background-color: var(--color-primary-hover);
+}
