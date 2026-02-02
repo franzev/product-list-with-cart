@@ -6,6 +6,14 @@
   padding: var(--spacing-300);
 }
 
+.base h1 {
+  color: var(--color-rose-900);
+  font-weight: var(--text-preset-1-weight);
+  font-size: var(--text-preset-1-size);
+  line-height: var(--text-preset-1-line-height);
+  letter-spacing: var(--text-preset-1-letter-spacing);
+}
+
 @media (min-width: 90rem) {
   .base {
     flex-direction: row;
