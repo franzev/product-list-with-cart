@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CartSection } from "./Cart";
 import productsData from "../../../data.json";
+import { fn } from "storybook/test";
 
 const meta = {
   title: "ui/Cart",
@@ -18,6 +19,7 @@ const meta = {
   ],
   args: {
     items: [],
+    onRemoveItem: fn(),
   },
 } satisfies Meta<typeof CartSection>;
 
