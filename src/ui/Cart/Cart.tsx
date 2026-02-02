@@ -18,15 +18,17 @@ const EmptyCart = () => {
 };
 
 export const CartSection = ({ items, onRemoveItem }: CartItemsProps) => {
-  const orderTotal = items
+  const filteredItems = items.filter((item) => item.quantity > 0);
+
+  const orderTotal = filteredItems
     .reduce((acc, item) => acc + item.product.price * item.quantity, 0)
     .toFixed(2);
 
   return (
-    <div className={styles.base}>
-      <h2>Your Cart ({items.length})</h2>
+    <aside className={styles.base}>
+      <h2>Your Cart ({filteredItems.length})</h2>
 
-      {items.length === 0 ? (
+      {filteredItems.length === 0 ? (
         <EmptyCart />
       ) : (
         <CartItems items={items} onRemoveItem={onRemoveItem} />
@@ -50,6 +52,6 @@ export const CartSection = ({ items, onRemoveItem }: CartItemsProps) => {
       </div>
 
       <Button>Confirm Order</Button>
-    </div>
+    </aside>
   );
 };

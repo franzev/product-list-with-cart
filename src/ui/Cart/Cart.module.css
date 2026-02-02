@@ -5,7 +5,13 @@
   gap: var(--spacing-300);
   background-color: var(--color-white);
   border-radius: var(--spacing-150);
-  width: 384px;
+  width: 100%;
+}
+
+@media (min-width: 64rem) {
+  .base {
+    width: 384px;
+  }
 }
 
 .base h2 {
