@@ -109,8 +109,12 @@ function App() {
 
   return (
     <>
-      <main className={styles.base} aria-hidden={isModalOpen}>
-        <section className={styles.products}>
+      <main
+        className={styles.base}
+        aria-hidden={isModalOpen}
+        aria-label="Product list and shopping cart"
+      >
+        <section className={styles.products} aria-labelledby="products-heading">
           <h1>Desserts</h1>
           <ProductGrid
             items={products}

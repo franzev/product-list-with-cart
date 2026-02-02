@@ -15,17 +15,31 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
   const filteredItems = items.filter((item) => item.quantity > 0);
 
   return (
-    <ul className={styles.base}>
+    <ul className={styles.base} aria-label="Cart items">
       {filteredItems.map((item, index) => (
         <Fragment key={item.product.id}>
-          <li className={styles.item}>
+          <li
+            className={styles.item}
+            aria-label={`Cart item: ${item.product.name}`}
+          >
             <div className={styles.itemContent}>
-              <span className={styles.itemName}>{item.product.name}</span>
+              <span
+                className={styles.itemName}
+                aria-label={`Product name: ${item.product.name}`}
+              >
+                {item.product.name}
+              </span>
 
-              <div className={styles.qtyAndPrice}>
+              <div
+                className={styles.qtyAndPrice}
+                role="group"
+                aria-label={`Pricing for ${item.product.name}`}
+              >
                 <span
                   className={styles.quantity}
                   aria-label={`Quantity: ${item.quantity}`}
+                  aria-live="polite"
+                  aria-atomic="true"
                 >
                   {item.quantity}x
                 </span>
