@@ -39,7 +39,9 @@
   align-items: center;
   gap: var(--spacing-100);
   font-weight: var(--text-preset-4-bold-weight);
-  font-size: var(--text-preset-4-bold-size);
+  font-size: var(--text-preset-4-size);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-4-letter-spacing);
   border: none;
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -63,8 +65,9 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.controlIcon:first-child::after, .controlIcon:last-child::after {
-  content: '';
+.controlIcon:first-child::after,
+.controlIcon:last-child::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -86,7 +89,7 @@
 }
 
 .controlIcon:first-child::after {
-  background-image: url('/assets/images/icon-decrement-quantity--hover.svg');
+  background-image: url("/assets/images/icon-decrement-quantity--hover.svg");
 }
 
 .controlIcon:first-child:hover::after {
@@ -98,7 +101,7 @@
 }
 
 .controlIcon:last-child::after {
-  background-image: url('/assets/images/icon-increment-quantity--hover--hover.svg');
+  background-image: url("/assets/images/icon-increment-quantity--hover--hover.svg");
 }
 
 .controlIcon:last-child:hover::after {
