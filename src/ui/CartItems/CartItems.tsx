@@ -11,9 +11,11 @@ export const Separator = () => {
 };
 
 export const CartItems = ({ items }: CartItemsProps) => {
+  const filteredItems = items.filter((item) => item.quantity > 0);
+
   return (
     <ul className={styles.base}>
-      {items.map((item, index) => (
+      {filteredItems.map((item, index) => (
         <>
           <li className={styles.item} key={`${index}-${item.product.name}`}>
             <div className={styles.itemContent}>
@@ -37,7 +39,7 @@ export const CartItems = ({ items }: CartItemsProps) => {
               />
             </button>
           </li>
-          {index !== items.length - 1 && (
+          {filteredItems.length > 1 && index !== filteredItems.length - 1 && (
             <li>
               <Separator />
             </li>
