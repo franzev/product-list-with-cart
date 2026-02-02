@@ -3,12 +3,22 @@
   background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
-  padding-inline: 1.5rem;
-  padding-block: 1rem;
+  padding-inline: var(--spacing-300);
+  padding-block: var(--spacing-200);
   font-weight: var(--text-preset-3-weight);
   font-size: var(--text-preset-3-size);
   border-radius: calc(infinity * 1px);
   cursor: pointer;
+}
+
+.base {
+  transition: background-color 0.3s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .base {
+    transition: none;
+  }
 }
 
 .base:hover {
