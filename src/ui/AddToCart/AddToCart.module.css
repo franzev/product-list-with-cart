@@ -1,0 +1,110 @@
+.base {
+  font-family: var(--font-family);
+  font-weight: var(--text-preset-3-weight);
+  font-size: var(--text-preset-3-size);
+  line-height: 0;
+  width: 160px;
+  border-radius: calc(infinity * 1px);
+}
+
+.empty:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.empty {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-rose-400);
+  padding-block: calc(var(--spacing-150) - 1px);
+  padding-inline: var(--spacing-150);
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-100);
+}
+
+.content img {
+  width: 20px;
+  height: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-100);
+  font-weight: var(--text-preset-4-bold-weight);
+  font-size: var(--text-preset-4-bold-size);
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-150);
+}
+
+.controls button {
+  width: 20px;
+  height: 20px;
+}
+
+.controlIcon {
+  position: relative;
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.controlIcon img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.controlIcon:first-child::after, .controlIcon:last-child::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .controlIcon img,
+  .controlIcon:first-child::after,
+  .controlIcon:last-child::after {
+    transition: none;
+  }
+}
+
+.controlIcon:first-child::after {
+  background-image: url('/assets/images/icon-decrement-quantity--hover.svg');
+}
+
+.controlIcon:first-child:hover::after {
+  opacity: 1;
+}
+
+.controlIcon:first-child:hover img {
+  opacity: 0;
+}
+
+.controlIcon:last-child::after {
+  background-image: url('/assets/images/icon-increment-quantity--hover--hover.svg');
+}
+
+.controlIcon:last-child:hover::after {
+  opacity: 1;
+}
+
+.controlIcon:last-child:hover img {
+  opacity: 0;
+}
