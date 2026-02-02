@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { CartItem } from "../../types";
 import styles from "./CartItems.module.css";
 
@@ -10,14 +11,14 @@ export const Separator = () => {
   return <div className={styles.separator} />;
 };
 
-export const CartItems = ({ items }: CartItemsProps) => {
+export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
   const filteredItems = items.filter((item) => item.quantity > 0);
 
   return (
     <ul className={styles.base}>
       {filteredItems.map((item, index) => (
-        <>
-          <li className={styles.item} key={`${index}-${item.product.name}`}>
+        <Fragment key={`${index}-${item.product.name}`}>
+          <li className={styles.item}>
             <div className={styles.itemContent}>
               <span className={styles.itemName}>{item.product.name}</span>
 
@@ -32,10 +33,15 @@ export const CartItems = ({ items }: CartItemsProps) => {
               </div>
             </div>
 
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => onRemoveItem(item)}
+              aria-label={`Remove ${item.product.name} from cart`}
+            >
               <img
                 src="/assets/images/icon-remove-item.svg"
-                alt="Remove Item"
+                alt=""
+                aria-hidden="true"
               />
             </button>
           </li>
@@ -44,7 +50,7 @@ export const CartItems = ({ items }: CartItemsProps) => {
               <Separator />
             </li>
           )}
-        </>
+        </Fragment>
       ))}
     </ul>
   );
