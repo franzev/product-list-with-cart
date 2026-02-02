@@ -1,0 +1,34 @@
+import styles from "./ProductGrid.module.css";
+import type { Product } from "../../types";
+import { ProductCard } from "../ProductCard";
+
+export type ProductGridItem = {
+  product: Product;
+  quantity: number;
+};
+
+type ProductGridProps = {
+  items: ProductGridItem[];
+  onDecrement: (product: Product) => void;
+  onIncrement: (product: Product) => void;
+};
+
+export const ProductGrid = ({
+  items,
+  onDecrement,
+  onIncrement,
+}: ProductGridProps) => {
+  return (
+    <div className={styles.base}>
+      {items.map((item, index) => (
+        <ProductCard
+          key={`${index}-${item.product.name}`}
+          product={item.product}
+          quantity={item.quantity}
+          onDecrement={() => onDecrement(item.product)}
+          onIncrement={() => onIncrement(item.product)}
+        />
+      ))}
+    </div>
+  );
+};
