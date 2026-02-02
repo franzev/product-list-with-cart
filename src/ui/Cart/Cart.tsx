@@ -1,6 +1,6 @@
+import type { CartItem } from "../../types";
 import { Button } from "../Button";
 import { CartItems, Separator, type CartItemsProps } from "../CartItems";
-
 import styles from "./Cart.module.css";
 
 const EmptyCart = () => {
@@ -17,12 +17,25 @@ const EmptyCart = () => {
   );
 };
 
-export const CartSection = ({ items, onRemoveItem }: CartItemsProps) => {
-  const filteredItems = items.filter((item) => item.quantity > 0);
+export type OrderTotalProps = {
+  items: CartItem[];
+};
 
-  const orderTotal = filteredItems
+export const OrderTotal = ({ items }: OrderTotalProps) => {
+  const orderTotal = items
     .reduce((acc, item) => acc + item.product.price * item.quantity, 0)
     .toFixed(2);
+
+  return (
+    <div className={styles.orderTotal}>
+      <span>Order Total</span>
+      <span>${orderTotal}</span>
+    </div>
+  );
+};
+
+export const CartSection = ({ items, onRemoveItem }: CartItemsProps) => {
+  const filteredItems = items.filter((item) => item.quantity > 0);
 
   return (
     <aside className={styles.base}>
@@ -31,27 +44,26 @@ export const CartSection = ({ items, onRemoveItem }: CartItemsProps) => {
       {filteredItems.length === 0 ? (
         <EmptyCart />
       ) : (
-        <CartItems items={items} onRemoveItem={onRemoveItem} />
+        <>
+          <CartItems items={items} onRemoveItem={onRemoveItem} />
+
+          <Separator />
+
+          <OrderTotal items={items} />
+
+          <div className={styles.carbonNeutral}>
+            <img
+              src="/assets/images/icon-carbon-neutral.svg"
+              alt="Carbon Neutral"
+            />
+            <span>
+              This is a <strong>carbon-neutral</strong> delivery
+            </span>
+          </div>
+
+          <Button>Confirm Order</Button>
+        </>
       )}
-
-      <Separator />
-
-      <div className={styles.orderTotal}>
-        <span>Order Total</span>
-        <span>${orderTotal}</span>
-      </div>
-
-      <div className={styles.carbonNeutral}>
-        <img
-          src="/assets/images/icon-carbon-neutral.svg"
-          alt="Carbon Neutral"
-        />
-        <span>
-          This is a <strong>carbon-neutral</strong> delivery
-        </span>
-      </div>
-
-      <Button>Confirm Order</Button>
     </aside>
   );
 };
