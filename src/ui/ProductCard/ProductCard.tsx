@@ -51,7 +51,7 @@ export const ProductCard = ({
           {product.category}
         </span>
 
-        <h3 className={styles.name}>{product.name}</h3>
+        <span className={styles.name}>{product.name}</span>
 
         <span
           className={styles.price}
