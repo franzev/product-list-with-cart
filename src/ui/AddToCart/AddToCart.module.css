@@ -98,6 +98,30 @@
   transition: opacity 0.2s ease-in-out;
 }
 
+.controlIcon:first-child::after {
+  background-image: url("/images/icon-decrement-quantity--hover.svg");
+}
+
+.controlIcon:last-child::after {
+  background-image: url("/images/icon-increment-quantity--hover--hover.svg");
+}
+
+.controlIcon:first-child:hover img {
+  opacity: 0;
+}
+
+.controlIcon:first-child:hover::after {
+  opacity: 1;
+}
+
+.controlIcon:last-child:hover img {
+  opacity: 0;
+}
+
+.controlIcon:last-child:hover::after {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .controlIcon img,
   .controlIcon:first-child::after,
@@ -109,28 +133,4 @@
   .hidden {
     transition: none;
   }
-}
-
-.controlIcon:first-child::after {
-  background-image: url("/images/icon-decrement-quantity--hover.svg");
-}
-
-.controlIcon:first-child:hover::after {
-  opacity: 1;
-}
-
-.controlIcon:first-child:hover img {
-  opacity: 0;
-}
-
-.controlIcon:last-child::after {
-  background-image: url("/images/icon-increment-quantity--hover--hover.svg");
-}
-
-.controlIcon:last-child:hover::after {
-  opacity: 1;
-}
-
-.controlIcon:last-child:hover img {
-  opacity: 0;
 }
