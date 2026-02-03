@@ -13,7 +13,7 @@ const EmptyCart = () => {
     >
       <div className={styles.emptyImage}>
         <img
-          src="/assets/images/illustration-empty-cart.svg"
+          src="/public/images/illustration-empty-cart.svg"
           alt=""
           aria-hidden="true"
         />
@@ -79,7 +79,7 @@ export const CartSection = ({
             aria-label="Carbon neutral delivery"
           >
             <img
-              src="/assets/images/icon-carbon-neutral.svg"
+              src="/public/images/icon-carbon-neutral.svg"
               alt=""
               aria-hidden="true"
             />
