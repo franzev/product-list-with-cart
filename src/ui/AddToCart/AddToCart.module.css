@@ -10,7 +10,7 @@
   font-size: var(--text-preset-4-size);
   line-height: 0;
   width: 10rem;
-  border-radius: 9999px;
+  border-radius: 624.9375rem;
 }
 
 .visible {
@@ -36,8 +36,8 @@
 .empty {
   background-color: var(--color-white);
   color: var(--color-black);
-  border: 1px solid var(--color-rose-400);
-  padding-block: calc(var(--spacing-150) - 1px);
+  border: 0.0625rem solid var(--color-rose-400);
+  padding-block: calc(var(--spacing-150) - 0.0625rem);
   padding-inline: var(--spacing-150);
   cursor: pointer;
   display: flex;
@@ -47,8 +47,8 @@
 }
 
 .content img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .controls {
@@ -67,8 +67,8 @@
 }
 
 .controls button {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .controlIcon {
@@ -89,8 +89,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

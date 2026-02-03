@@ -10,7 +10,7 @@
 
 @media (min-width: 90rem) {
   .base {
-    width: 384px;
+    width: 24rem;
   }
 }
 
@@ -32,8 +32,8 @@
 }
 
 .emptyImage {
-  width: 128px;
-  height: 128px;
+  width: 8rem;
+  height: 8rem;
 }
 
 .empty p {
@@ -80,8 +80,8 @@
 }
 
 .carbonNeutral img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .carbonNeutral span {

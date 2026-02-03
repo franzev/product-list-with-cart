@@ -7,7 +7,7 @@
 
 @media (min-width: 90rem) {
   .base {
-    width: 250px;
+    width: 15.625rem;
   }
 }
 
@@ -20,7 +20,7 @@
 .imageContainer {
   width: 100%;
   height: auto;
-  border: 2px solid transparent;
+  border: 0.125rem solid transparent;
   transition: border-color 0.2s ease-out;
   border-radius: var(--spacing-100);
   display: block;
@@ -34,8 +34,8 @@
 
 @media (min-width: 90rem) {
   .imageContainer {
-    width: 250px;
-    height: 240px;
+    width: 15.625rem;
+    height: 15rem;
   }
 
   .imageContainer img {
@@ -46,11 +46,11 @@
 }
 
 .withQuantity {
-  border: 2px solid var(--color-primary);
+  border: 0.125rem solid var(--color-primary);
 }
 
 .imageAndControls > :last-child {
-  margin-top: calc(-1.375rem - 2px);
+  margin-top: calc(-1.375rem - 0.125rem);
 }
 
 .productInfo {
