@@ -115,7 +115,7 @@
 }
 
 .controlIcon:first-child::after {
-  background-image: url("/public/images/icon-decrement-quantity--hover.svg");
+  background-image: url("/images/icon-decrement-quantity--hover.svg");
 }
 
 .controlIcon:first-child:hover::after {
@@ -127,7 +127,7 @@
 }
 
 .controlIcon:last-child::after {
-  background-image: url("/public/images/icon-increment-quantity--hover--hover.svg");
+  background-image: url("/images/icon-increment-quantity--hover--hover.svg");
 }
 
 .controlIcon:last-child:hover::after {
