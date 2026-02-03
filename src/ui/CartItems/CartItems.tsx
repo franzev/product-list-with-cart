@@ -5,7 +5,7 @@ import styles from "./CartItems.module.css";
 export interface CartItemsProps {
   items: CartItem[];
   onRemoveItem: (item: CartItem) => void;
-};
+}
 
 export const Separator = () => {
   return <div className={styles.separator} aria-hidden="true" />;
@@ -70,7 +70,7 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
               aria-label={`Remove ${item.product.name} from cart`}
             >
               <img
-                src="/public/images/icon-remove-item.svg"
+                src="/images/icon-remove-item.svg"
                 alt=""
                 aria-hidden="true"
               />
