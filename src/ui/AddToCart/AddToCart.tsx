@@ -43,10 +43,10 @@ const Controls = ({
       <button
         type="button"
         className={styles.controlIcon}
-        onClick={onDecrement}
+        onClick={isHidden ? undefined : onDecrement}
         aria-label={decrementLabel}
         aria-controls={quantityId}
-        tabIndex={isHidden ? -1 : undefined}
+        tabIndex={isHidden ? -1 : 0}
         disabled={isHidden}
       >
         <img
@@ -61,10 +61,10 @@ const Controls = ({
       <button
         type="button"
         className={styles.controlIcon}
-        onClick={onIncrement}
+        onClick={isHidden ? undefined : onIncrement}
         aria-label={incrementLabel}
         aria-controls={quantityId}
-        tabIndex={isHidden ? -1 : undefined}
+        tabIndex={isHidden ? -1 : 0}
         disabled={isHidden}
       >
         <img
@@ -98,10 +98,10 @@ export const AddToCart = ({
           styles.empty,
           quantity === 0 ? styles.visible : styles.hidden
         )}
-        onClick={onIncrement}
+        onClick={isAddToCartHidden ? undefined : onIncrement}
         aria-label={addToCartLabel}
         aria-hidden={isAddToCartHidden}
-        tabIndex={isAddToCartHidden ? -1 : undefined}
+        tabIndex={isAddToCartHidden ? -1 : 0}
         disabled={isAddToCartHidden}
       >
         <div className={styles.content}>
