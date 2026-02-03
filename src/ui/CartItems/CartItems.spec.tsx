@@ -21,7 +21,9 @@ describe("CartItems", () => {
       quantity: 2,
     };
 
-    await render(<CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />);
+    await render(
+      <CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />
+    );
 
     await expect
       .element(page.getByLabelText(`Cart item: ${products[0].name}`))
@@ -35,7 +37,9 @@ describe("CartItems", () => {
       quantity: 2,
     };
 
-    await render(<CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />);
+    await render(
+      <CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />
+    );
 
     await expect
       .element(page.getByLabelText(`Product name: ${products[0].name}`))
@@ -49,7 +53,9 @@ describe("CartItems", () => {
       quantity: 2,
     };
 
-    await render(<CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />);
+    await render(
+      <CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />
+    );
 
     await expect
       .element(page.getByLabelText("Quantity: 2"))
@@ -63,7 +69,9 @@ describe("CartItems", () => {
       quantity: 2,
     };
 
-    await render(<CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />);
+    await render(
+      <CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />
+    );
 
     await expect
       .element(
@@ -80,7 +88,9 @@ describe("CartItems", () => {
     };
     const expectedTotal = (products[0].price * 2).toFixed(2);
 
-    await render(<CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />);
+    await render(
+      <CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />
+    );
 
     await expect
       .element(page.getByLabelText(`Item total: $${expectedTotal}`))
@@ -94,7 +104,9 @@ describe("CartItems", () => {
       quantity: 2,
     };
 
-    await render(<CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />);
+    await render(
+      <CartItems items={[cartItem]} onRemoveItem={handleRemoveItem} />
+    );
 
     await page
       .getByRole("button", { name: `Remove ${products[0].name} from cart` })
@@ -119,5 +131,11 @@ describe("CartItems", () => {
     await expect
       .element(page.getByLabelText(`Cart item: ${products[1].name}`))
       .toBeInTheDocument();
+
+    // Verify separator is rendered between items
+    const separator = document.querySelector(
+      'li[aria-hidden="true"] div[aria-hidden="true"]'
+    );
+    expect(separator).not.toBeNull();
   });
 });
