@@ -36,7 +36,7 @@
   height: 128px;
 }
 
-.empty span {
+.empty p {
   color: var(--color-rose-500);
   font-weight: var(--text-preset-4-bold-weight);
   font-size: var(--text-preset-4-size);
