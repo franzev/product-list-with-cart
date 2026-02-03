@@ -85,7 +85,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .imageAndControls > img {
+  .imageContainer {
     transition: none;
   }
 }
