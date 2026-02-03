@@ -15,7 +15,7 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
   const filteredItems = items.filter((item) => item.quantity > 0);
 
   return (
-    <ul className={styles.base} aria-label="Cart items">
+    <ul className={styles.base}>
       {filteredItems.map((item, index) => (
         <Fragment key={item.product.id}>
           <li

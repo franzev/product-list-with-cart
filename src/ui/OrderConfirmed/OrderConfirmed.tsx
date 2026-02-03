@@ -34,7 +34,7 @@ export const OrderConfirmed = ({
       </div>
 
       <div className={styles.inner}>
-        <ul className={styles.items} aria-label="Order items">
+        <ul className={styles.items}>
           {items.map((item, index) => {
             const pricePerItem = item.product.price.toFixed(2);
             const itemTotal = (item.quantity * item.product.price).toFixed(2);
