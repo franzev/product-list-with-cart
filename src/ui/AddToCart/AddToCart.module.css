@@ -10,7 +10,7 @@
   font-size: var(--text-preset-3-size);
   line-height: 0;
   width: 160px;
-  border-radius: calc(infinity * 1px);
+  border-radius: 9999px;
 }
 
 .visible {
