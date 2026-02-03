@@ -7,7 +7,7 @@
   padding-block: var(--spacing-200);
   font-weight: var(--text-preset-3-weight);
   font-size: var(--text-preset-3-size);
-  border-radius: calc(infinity * 1px);
+  border-radius: 9999px;
   cursor: pointer;
 }
 

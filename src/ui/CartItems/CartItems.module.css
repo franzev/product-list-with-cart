@@ -29,7 +29,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  border-radius: calc(infinity * 1px);
+  border-radius: 9999px;
   line-height: 0;
   transition: background-color 0.2s ease-in-out;
 }
