@@ -17,22 +17,20 @@ export const ProductCard = ({
   return (
     <article className={styles.base} aria-label={product.name}>
       <div className={styles.imageAndControls}>
-        <div
+        <picture
           className={clsx(
             styles.imageContainer,
             quantity > 0 ? styles.withQuantity : undefined
           )}
         >
-          <picture>
-            <source media="(min-width: 90rem)" srcSet={product.image.desktop} />
-            <source media="(min-width: 48rem)" srcSet={product.image.tablet} />
-            <img
-              src={product.image.mobile}
-              alt={`${product.name} - ${product.category}`}
-              loading="lazy"
-            />
-          </picture>
-        </div>
+          <source media="(min-width: 90rem)" srcSet={product.image.desktop} />
+          <source media="(min-width: 48rem)" srcSet={product.image.tablet} />
+          <img
+            src={product.image.mobile}
+            alt={`${product.name} - ${product.category}`}
+            loading="lazy"
+          />
+        </picture>
         <AddToCart
           quantity={quantity}
           onDecrement={() => onDecrement(product)}
