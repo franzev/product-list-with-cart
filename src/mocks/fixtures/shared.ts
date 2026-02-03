@@ -12,19 +12,10 @@ const createCartItem = (product: Product, quantity: number): CartItem => ({
   quantity: Math.max(0, quantity),
 });
 
-const createProductItem = (
-  product: Product,
-  quantity = 0
-): ProductItem => ({
+const createProductItem = (product: Product, quantity = 0): ProductItem => ({
   product,
   quantity,
 });
-
-const getQuantityForProduct = (
-  productId: string,
-  cartItems: CartItem[]
-): number =>
-  cartItems.find((item) => item.product.id === productId)?.quantity ?? 0;
 
 export const initialCartItems: CartItem[] = [
   createCartItem(products[3], 1),
@@ -33,10 +24,7 @@ export const initialCartItems: CartItem[] = [
 ];
 
 export const initialProducts: ProductItem[] = products.map((product) =>
-  createProductItem(
-    product,
-    getQuantityForProduct(product.id, initialCartItems)
-  )
+  createProductItem(product, 0)
 );
 
 export const emptyCart: CartItem[] = [];
