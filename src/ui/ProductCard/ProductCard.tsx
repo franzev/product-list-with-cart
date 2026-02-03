@@ -15,7 +15,7 @@ export const ProductCard = ({
   onIncrement,
 }: ProductCardProps) => {
   return (
-    <article className={styles.base} aria-label={product.name} role="listitem">
+    <article className={styles.base} aria-label={product.name}>
       <div className={styles.imageAndControls}>
         <picture
           className={clsx(
