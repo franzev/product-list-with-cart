@@ -15,12 +15,12 @@ export const ProductCard = ({
   onIncrement,
 }: ProductCardProps) => {
   return (
-    <article className={styles.base} aria-label={product.name}>
+    <article className={styles.base} aria-label={product.name} role="listitem">
       <div className={styles.imageAndControls}>
         <picture
           className={clsx(
             styles.imageContainer,
-            quantity > 0 ? styles.withQuantity : undefined,
+            quantity > 0 ? styles.withQuantity : undefined
           )}
         >
           <source media="(min-width: 90rem)" srcSet={product.image.desktop} />
