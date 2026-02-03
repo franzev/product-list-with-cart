@@ -2,10 +2,10 @@ import type { CartItem } from "../../types/Cart";
 import type { Product } from "../../types/Product";
 import { products } from "../data/products";
 
-export type ProductItem = {
+export interface ProductItem {
   product: Product;
   quantity: number;
-};
+}
 
 const createCartItem = (product: Product, quantity: number): CartItem => ({
   product,
@@ -14,7 +14,7 @@ const createCartItem = (product: Product, quantity: number): CartItem => ({
 
 const createProductItem = (
   product: Product,
-  quantity: number = 0
+  quantity = 0
 ): ProductItem => ({
   product,
   quantity,

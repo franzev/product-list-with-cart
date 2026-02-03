@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import styles from "./AddToCart.module.css";
 
-type ControlsProps = {
+interface ControlsProps {
   quantity: number;
   onDecrement: () => void;
   onIncrement: () => void;
   productName?: string;
-};
+}
 
 const Controls = ({
   quantity,
@@ -16,7 +16,7 @@ const Controls = ({
   productName,
 }: ControlsProps & { className?: string }) => {
   const quantityId = `quantity-${
-    productName?.replace(/\s+/g, "-").toLowerCase() || "item"
+    productName?.replace(/\s+/g, "-").toLowerCase() ?? "item"
   }`;
   const displayQuantity = quantity === 0 ? 1 : quantity;
   const decrementLabel = productName
@@ -32,7 +32,7 @@ const Controls = ({
         styles.base,
         styles.withCount,
         styles.controls,
-        className
+        className,
       )}
       role="group"
       aria-label={`Quantity controls for ${productName || "item"}`}
@@ -87,7 +87,7 @@ export const AddToCart = ({
         className={clsx(
           styles.base,
           styles.empty,
-          quantity === 0 ? styles.visible : styles.hidden
+          quantity === 0 ? styles.visible : styles.hidden,
         )}
         onClick={onIncrement}
         aria-label={addToCartLabel}

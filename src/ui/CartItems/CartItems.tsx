@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import type { CartItem } from "../../types";
 import styles from "./CartItems.module.css";
 
-export type CartItemsProps = {
+export interface CartItemsProps {
   items: CartItem[];
   onRemoveItem: (item: CartItem) => void;
 };
@@ -37,7 +37,7 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
               >
                 <span
                   className={styles.quantity}
-                  aria-label={`Quantity: ${item.quantity}`}
+                  aria-label={`Quantity: ${item.quantity.toString()}`}
                   aria-live="polite"
                   aria-atomic="true"
                 >
@@ -64,7 +64,9 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
 
             <button
               type="button"
-              onClick={() => onRemoveItem(item)}
+              onClick={() => {
+                onRemoveItem(item);
+              }}
               aria-label={`Remove ${item.product.name} from cart`}
             >
               <img
