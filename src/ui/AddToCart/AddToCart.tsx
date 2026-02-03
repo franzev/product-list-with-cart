@@ -32,10 +32,11 @@ const Controls = ({
         styles.base,
         styles.withCount,
         styles.controls,
-        className,
+        className
       )}
       role="group"
-      aria-label={`Quantity controls for ${productName || "item"}`}
+      aria-label={`Quantity controls for ${productName ?? "item"}`}
+      aria-hidden={quantity === 0}
     >
       <button
         type="button"
@@ -87,10 +88,11 @@ export const AddToCart = ({
         className={clsx(
           styles.base,
           styles.empty,
-          quantity === 0 ? styles.visible : styles.hidden,
+          quantity === 0 ? styles.visible : styles.hidden
         )}
         onClick={onIncrement}
         aria-label={addToCartLabel}
+        aria-hidden={quantity > 0}
       >
         <div className={styles.content}>
           <img
