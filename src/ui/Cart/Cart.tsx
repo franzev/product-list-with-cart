@@ -35,7 +35,7 @@ export const OrderTotal = ({ items }: OrderTotalProps) => {
   return (
     <dl className={styles.orderTotal}>
       <dt>Order Total</dt>
-      <dd aria-label={`Order total: $${orderTotal}`}>${orderTotal}</dd>
+      <dd>${orderTotal}</dd>
     </dl>
   );
 };
