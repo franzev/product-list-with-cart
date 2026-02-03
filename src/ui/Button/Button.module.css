@@ -9,9 +9,6 @@
   font-size: var(--text-preset-3-size);
   border-radius: 9999px;
   cursor: pointer;
-}
-
-.base {
   transition: background-color 0.2s ease-in-out;
 }
 
