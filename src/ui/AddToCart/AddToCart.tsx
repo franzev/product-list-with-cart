@@ -26,6 +26,8 @@ const Controls = ({
     ? `Increase quantity of ${productName}`
     : "Increase quantity";
 
+  const isHidden = quantity === 0;
+
   return (
     <div
       className={clsx(
@@ -36,7 +38,7 @@ const Controls = ({
       )}
       role="group"
       aria-label={`Quantity controls for ${productName ?? "item"}`}
-      aria-hidden={quantity === 0}
+      aria-hidden={isHidden}
     >
       <button
         type="button"
@@ -44,6 +46,8 @@ const Controls = ({
         onClick={onDecrement}
         aria-label={decrementLabel}
         aria-controls={quantityId}
+        tabIndex={isHidden ? -1 : undefined}
+        disabled={isHidden}
       >
         <img
           src="/images/icon-decrement-quantity.svg"
@@ -60,6 +64,8 @@ const Controls = ({
         onClick={onIncrement}
         aria-label={incrementLabel}
         aria-controls={quantityId}
+        tabIndex={isHidden ? -1 : undefined}
+        disabled={isHidden}
       >
         <img
           src="/images/icon-increment-quantity.svg"
@@ -81,6 +87,8 @@ export const AddToCart = ({
     ? `Add ${productName} to cart`
     : "Add to Cart";
 
+  const isAddToCartHidden = quantity > 0;
+
   return (
     <div className={styles.wrapper}>
       <button
@@ -92,7 +100,9 @@ export const AddToCart = ({
         )}
         onClick={onIncrement}
         aria-label={addToCartLabel}
-        aria-hidden={quantity > 0}
+        aria-hidden={isAddToCartHidden}
+        tabIndex={isAddToCartHidden ? -1 : undefined}
+        disabled={isAddToCartHidden}
       >
         <div className={styles.content}>
           <img src="/images/icon-add-to-cart.svg" alt="" aria-hidden="true" />
