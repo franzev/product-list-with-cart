@@ -27,7 +27,7 @@
   --text-preset-2-weight: 700;
   --text-preset-2-size: 1.5rem;
   --text-preset-2-line-height: 1.25;
-  --text-preset-1-letter-spacing: 0;
+  --text-preset-2-letter-spacing: 0;
   /* --text-preset-2-letter-spacing: 0.02rem; */
 
   --text-preset-3-weight: 600;
@@ -39,7 +39,7 @@
   --text-preset-4-size: 0.875rem;
   --text-preset-4-weight: 500;
   --text-preset-4-line-height: 1.5;
-  --text-preset-3-letter-spacing: 0;
+  --text-preset-4-letter-spacing: 0;
   /* --text-preset-4-letter-spacing: -0.0056rem; */
   --text-preset-4-bold-weight: 600;
 
