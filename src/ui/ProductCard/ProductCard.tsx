@@ -44,21 +44,11 @@ export const ProductCard = ({
       </div>
 
       <div className={styles.productInfo}>
-        <span
-          className={styles.category}
-          aria-label={`Category: ${product.category}`}
-        >
-          {product.category}
-        </span>
+        <span className={styles.category}>{product.category}</span>
 
         <span className={styles.name}>{product.name}</span>
 
-        <span
-          className={styles.price}
-          aria-label={`Price: $${product.price.toFixed(2)}`}
-        >
-          ${product.price.toFixed(2)}
-        </span>
+        <span className={styles.price}>${product.price.toFixed(2)}</span>
       </div>
     </article>
   );

@@ -23,12 +23,7 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
             aria-label={`Cart item: ${item.product.name}`}
           >
             <div className={styles.itemContent}>
-              <span
-                className={styles.itemName}
-                aria-label={`Product name: ${item.product.name}`}
-              >
-                {item.product.name}
-              </span>
+              <span className={styles.itemName}>{item.product.name}</span>
 
               <div
                 className={styles.qtyAndPrice}
@@ -37,26 +32,15 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
               >
                 <span
                   className={styles.quantity}
-                  aria-label={`Quantity: ${item.quantity.toString()}`}
                   aria-live="polite"
                   aria-atomic="true"
                 >
                   {item.quantity}x
                 </span>
-                <span
-                  className={styles.price}
-                  aria-label={`Price per item: $${item.product.price.toFixed(
-                    2
-                  )}`}
-                >
+                <span className={styles.price}>
                   @ ${item.product.price.toFixed(2)}
                 </span>
-                <span
-                  className={styles.total}
-                  aria-label={`Item total: $${(
-                    item.quantity * item.product.price
-                  ).toFixed(2)}`}
-                >
+                <span className={styles.total}>
                   ${(item.quantity * item.product.price).toFixed(2)}
                 </span>
               </div>

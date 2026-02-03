@@ -54,28 +54,15 @@ export const OrderConfirmed = ({
                       </span>
 
                       <div className={styles.qtyAndPrice}>
-                        <span
-                          className={styles.quantity}
-                          aria-label={`Quantity: ${item.quantity.toString()}`}
-                        >
+                        <span className={styles.quantity}>
                           {item.quantity}x
                         </span>
-                        <span
-                          className={styles.price}
-                          aria-label={`Price per item: $${pricePerItem}`}
-                        >
-                          @ ${pricePerItem}
-                        </span>
+                        <span className={styles.price}>@ ${pricePerItem}</span>
                       </div>
                     </div>
                   </div>
 
-                  <span
-                    className={styles.total}
-                    aria-label={`Item total: $${itemTotal}`}
-                  >
-                    ${itemTotal}
-                  </span>
+                  <span className={styles.total}>${itemTotal}</span>
                 </li>
 
                 {items.length > 1 && index !== items.length - 1 && (
