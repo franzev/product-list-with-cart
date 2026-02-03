@@ -17,6 +17,7 @@
 
   --color-green: hsl(159, 69%, 38%);
   --color-black: hsl(0, 0%, 0%);
+  --color-black-transparent: rgba(0, 0, 0, 0.5);
   --color-white: hsl(0, 0%, 100%);
 
   --text-preset-1-weight: 700;
