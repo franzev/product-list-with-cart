@@ -1,11 +1,12 @@
 import clsx from "clsx";
+import type { Product } from "../../types/Product";
 import styles from "./AddToCart.module.css";
 
 interface ControlsProps {
   quantity: number;
   onDecrement: () => void;
   onIncrement: () => void;
-  productName?: string;
+  product: Product;
 }
 
 const Controls = ({
@@ -13,17 +14,14 @@ const Controls = ({
   onDecrement,
   onIncrement,
   className,
-  productName,
+  product,
 }: ControlsProps & { className?: string }) => {
-  const quantityId = `quantity-${
-    productName?.replace(/\s+/g, "-").toLowerCase() ?? "item"
-  }`;
   const displayQuantity = quantity === 0 ? 1 : quantity;
-  const decrementLabel = productName
-    ? `Decrease quantity of ${productName}`
+  const decrementLabel = product.name
+    ? `Decrease quantity of ${product.name}`
     : "Decrease quantity";
-  const incrementLabel = productName
-    ? `Increase quantity of ${productName}`
+  const incrementLabel = product.name
+    ? `Increase quantity of ${product.name}`
     : "Increase quantity";
 
   const isHidden = quantity === 0;
@@ -37,7 +35,7 @@ const Controls = ({
         className
       )}
       role="group"
-      aria-label={`Quantity controls for ${productName ?? "item"}`}
+      aria-label={`Quantity controls for ${product.name}`}
       aria-hidden={isHidden}
     >
       <button
@@ -45,7 +43,7 @@ const Controls = ({
         className={styles.controlIcon}
         onClick={isHidden ? undefined : onDecrement}
         aria-label={decrementLabel}
-        aria-controls={quantityId}
+        aria-controls={product.id}
         tabIndex={isHidden ? -1 : 0}
         disabled={isHidden}
       >
@@ -55,7 +53,7 @@ const Controls = ({
           aria-hidden="true"
         />
       </button>
-      <span id={quantityId} aria-live="polite" aria-atomic="true">
+      <span id={product.id} aria-live="polite" aria-atomic="true">
         {displayQuantity}
       </span>
       <button
@@ -63,7 +61,7 @@ const Controls = ({
         className={styles.controlIcon}
         onClick={isHidden ? undefined : onIncrement}
         aria-label={incrementLabel}
-        aria-controls={quantityId}
+        aria-controls={product.id}
         tabIndex={isHidden ? -1 : 0}
         disabled={isHidden}
       >
@@ -81,10 +79,10 @@ export const AddToCart = ({
   quantity,
   onDecrement,
   onIncrement,
-  productName,
+  product,
 }: ControlsProps) => {
-  const addToCartLabel = productName
-    ? `Add ${productName} to cart`
+  const addToCartLabel = product.name
+    ? `Add ${product.name} to cart`
     : "Add to Cart";
 
   const isAddToCartHidden = quantity > 0;
@@ -104,16 +102,14 @@ export const AddToCart = ({
         tabIndex={isAddToCartHidden ? -1 : 0}
         disabled={isAddToCartHidden}
       >
-        <div className={styles.content}>
-          <img src="/images/icon-add-to-cart.svg" alt="" aria-hidden="true" />
-          Add to Cart
-        </div>
+        <img src="/images/icon-add-to-cart.svg" alt="" aria-hidden="true" />
+        Add to Cart
       </button>
       <Controls
         quantity={quantity}
         onDecrement={onDecrement}
         onIncrement={onIncrement}
-        productName={productName}
+        product={product}
         className={clsx(quantity === 0 ? styles.hidden : styles.visible)}
       />
     </div>

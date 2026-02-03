@@ -39,7 +39,7 @@ export const ProductCard = ({
           onIncrement={() => {
             onIncrement(product);
           }}
-          productName={product.name}
+          product={product}
         />
       </div>
 

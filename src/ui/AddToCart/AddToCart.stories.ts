@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 import { AddToCart } from "./AddToCart";
+import { waffleProduct } from "../../mocks/fixtures";
 
 const meta = {
   title: "ui/AddToCart",
@@ -10,6 +11,7 @@ const meta = {
   },
   tags: ["autodocs"],
   args: {
+    product: waffleProduct,
     quantity: 0,
     onDecrement: fn(),
     onIncrement: fn(),

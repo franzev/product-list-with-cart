@@ -40,9 +40,6 @@
   padding-block: calc(var(--spacing-150) - 1px);
   padding-inline: var(--spacing-150);
   cursor: pointer;
-}
-
-.content {
   display: flex;
   justify-content: center;
   align-items: center;

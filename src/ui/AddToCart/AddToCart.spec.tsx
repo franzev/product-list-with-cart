@@ -3,6 +3,9 @@ import { render } from "vitest-browser-react";
 import { page } from "vitest/browser";
 import { useState } from "react";
 import { AddToCart } from "./AddToCart";
+import { products } from "../../mocks";
+
+const product = products[0];
 
 describe("AddToCart", () => {
   it("renders add to cart button when quantity is 0", async () => {
@@ -14,11 +17,14 @@ describe("AddToCart", () => {
         quantity={0}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
-      />,
+        product={product}
+      />
     );
 
     await expect
-      .element(page.getByRole("button", { name: "Add to Cart" }))
+      .element(
+        page.getByRole("button", { name: `Add ${product.name} to cart` })
+      )
       .toBeInTheDocument();
   });
 
@@ -31,11 +37,16 @@ describe("AddToCart", () => {
         quantity={2}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
-      />,
+        product={product}
+      />
     );
 
     await expect
-      .element(page.getByRole("group", { name: "Quantity controls for item" }))
+      .element(
+        page.getByRole("group", {
+          name: `Quantity controls for ${product.name}`,
+        })
+      )
       .toBeInTheDocument();
   });
 
@@ -48,7 +59,8 @@ describe("AddToCart", () => {
         quantity={3}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
-      />,
+        product={product}
+      />
     );
 
     await expect.element(page.getByText("3")).toBeInTheDocument();
@@ -66,6 +78,7 @@ describe("AddToCart", () => {
           onDecrement={() => {
             setQty(0);
           }}
+          product={product}
         />
       );
     };
@@ -73,13 +86,23 @@ describe("AddToCart", () => {
     await render(<TestComponent />);
 
     await expect
-      .element(page.getByRole("group", { name: "Quantity controls for item" }))
+      .element(
+        page.getByRole("group", {
+          name: `Quantity controls for ${product.name}`,
+        })
+      )
       .toBeInTheDocument();
 
-    await page.getByRole("button", { name: "Decrease quantity" }).click();
+    await page
+      .getByRole("button", {
+        name: `Decrease quantity of ${product.name}`,
+      })
+      .click();
 
     await expect
-      .element(page.getByRole("button", { name: "Add to Cart" }))
+      .element(
+        page.getByRole("button", { name: `Add ${product.name} to cart` })
+      )
       .toBeInTheDocument();
   });
 
@@ -92,12 +115,14 @@ describe("AddToCart", () => {
         quantity={1}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
-        productName="Test Product"
-      />,
+        product={product}
+      />
     );
 
     await page
-      .getByRole("button", { name: "Increase quantity of Test Product" })
+      .getByRole("button", {
+        name: `Increase quantity of ${product.name}`,
+      })
       .click();
 
     expect(handleIncrement).toHaveBeenCalledOnce();
@@ -112,12 +137,14 @@ describe("AddToCart", () => {
         quantity={2}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
-        productName="Test Product"
-      />,
+        product={product}
+      />
     );
 
     await page
-      .getByRole("button", { name: "Decrease quantity of Test Product" })
+      .getByRole("button", {
+        name: `Decrease quantity of ${product.name}`,
+      })
       .click();
 
     expect(handleDecrement).toHaveBeenCalledOnce();
@@ -132,12 +159,12 @@ describe("AddToCart", () => {
         quantity={0}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
-        productName="Test Product"
-      />,
+        product={product}
+      />
     );
 
     await page
-      .getByRole("button", { name: "Add Test Product to cart" })
+      .getByRole("button", { name: `Add ${product.name} to cart` })
       .click();
 
     expect(handleIncrement).toHaveBeenCalledOnce();
