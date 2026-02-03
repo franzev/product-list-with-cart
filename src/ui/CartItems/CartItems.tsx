@@ -70,7 +70,7 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
               aria-label={`Remove ${item.product.name} from cart`}
             >
               <img
-                src="/assets/images/icon-remove-item.svg"
+                src="/public/images/icon-remove-item.svg"
                 alt=""
                 aria-hidden="true"
               />

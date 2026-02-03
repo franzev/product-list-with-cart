@@ -46,7 +46,7 @@ const Controls = ({
         aria-controls={quantityId}
       >
         <img
-          src="/assets/images/icon-decrement-quantity.svg"
+          src="/public/images/icon-decrement-quantity.svg"
           alt=""
           aria-hidden="true"
         />
@@ -62,7 +62,7 @@ const Controls = ({
         aria-controls={quantityId}
       >
         <img
-          src="/assets/images/icon-increment-quantity.svg"
+          src="/public/images/icon-increment-quantity.svg"
           alt=""
           aria-hidden="true"
         />
@@ -96,7 +96,7 @@ export const AddToCart = ({
       >
         <div className={styles.content}>
           <img
-            src="/assets/images/icon-add-to-cart.svg"
+            src="/public/images/icon-add-to-cart.svg"
             alt=""
             aria-hidden="true"
           />

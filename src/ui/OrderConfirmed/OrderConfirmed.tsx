@@ -19,7 +19,7 @@ export const OrderConfirmed = ({
       <div className={styles.header}>
         <img
           className={styles.icon}
-          src="/assets/images/icon-order-confirmed.svg"
+          src="/public/images/icon-order-confirmed.svg"
           alt=""
           aria-hidden="true"
         />
