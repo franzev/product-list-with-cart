@@ -20,7 +20,7 @@ export const ProductCard = ({
         <picture
           className={clsx(
             styles.imageContainer,
-            quantity > 0 ? styles.withQuantity : undefined
+            quantity > 0 ? styles.withQuantity : undefined,
           )}
         >
           <source media="(min-width: 90rem)" srcSet={product.image.desktop} />
@@ -33,8 +33,12 @@ export const ProductCard = ({
         </picture>
         <AddToCart
           quantity={quantity}
-          onDecrement={() => onDecrement(product)}
-          onIncrement={() => onIncrement(product)}
+          onDecrement={() => {
+            onDecrement(product);
+          }}
+          onIncrement={() => {
+            onIncrement(product);
+          }}
           productName={product.name}
         />
       </div>

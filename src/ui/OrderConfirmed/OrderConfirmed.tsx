@@ -5,10 +5,10 @@ import { OrderTotal } from "../Cart";
 import { Separator } from "../CartItems";
 import styles from "./OrderConfirmed.module.css";
 
-type OrderConfirmedProps = {
+interface OrderConfirmedProps {
   items: CartItem[];
   onStartNewOrder?: () => void;
-};
+}
 
 export const OrderConfirmed = ({
   items,
@@ -56,7 +56,7 @@ export const OrderConfirmed = ({
                       <div className={styles.qtyAndPrice}>
                         <span
                           className={styles.quantity}
-                          aria-label={`Quantity: ${item.quantity}`}
+                          aria-label={`Quantity: ${item.quantity.toString()}`}
                         >
                           {item.quantity}x
                         </span>

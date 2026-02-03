@@ -4,10 +4,10 @@ import { initialCartItems, initialProducts } from "./mocks";
 import type { CartItem, Product } from "./types";
 import { CartSection, Modal, OrderConfirmed, ProductGrid } from "./ui";
 
-type ProductItem = {
+interface ProductItem {
   product: Product;
   quantity: number;
-};
+}
 
 function App() {
   const [products, setProducts] = useState<ProductItem[]>(initialProducts);
@@ -19,20 +19,20 @@ function App() {
       prevProducts.map((item) =>
         item.product.id === product.id
           ? { ...item, quantity: item.quantity + 1 }
-          : item
-      )
+          : item,
+      ),
     );
 
     setCartItems((prevCartItems) => {
       const existingItem = prevCartItems.find(
-        (item) => item.product.id === product.id
+        (item) => item.product.id === product.id,
       );
 
       if (existingItem) {
         return prevCartItems.map((item) =>
           item.product.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
-            : item
+            : item,
         );
       }
 
@@ -45,20 +45,20 @@ function App() {
       prevProducts.map((item) =>
         item.product.id === product.id && item.quantity > 0
           ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
+          : item,
+      ),
     );
 
     setCartItems((prevCartItems) => {
       const existingItem = prevCartItems.find(
-        (item) => item.product.id === product.id
+        (item) => item.product.id === product.id,
       );
 
       if (existingItem && existingItem.quantity > 1) {
         return prevCartItems.map((item) =>
           item.product.id === product.id
             ? { ...item, quantity: item.quantity - 1 }
-            : item
+            : item,
         );
       }
 
@@ -71,14 +71,14 @@ function App() {
       prevProducts.map((item) =>
         item.product.id === itemToRemove.product.id
           ? { ...item, quantity: 0 }
-          : item
-      )
+          : item,
+      ),
     );
 
     setCartItems((prevCartItems) =>
       prevCartItems.filter(
-        (item) => item.product.id !== itemToRemove.product.id
-      )
+        (item) => item.product.id !== itemToRemove.product.id,
+      ),
     );
   };
 
@@ -95,7 +95,7 @@ function App() {
     // Wait for fade out animation to complete (400ms) before clearing cart
     setTimeout(() => {
       setProducts((prevProducts) =>
-        prevProducts.map((item) => ({ ...item, quantity: 0 }))
+        prevProducts.map((item) => ({ ...item, quantity: 0 })),
       );
       setCartItems([]);
     }, 400);

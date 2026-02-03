@@ -3,13 +3,13 @@ import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.css";
 
-type ModalProps = {
+interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
   titleId?: string;
   descriptionId?: string;
-};
+}
 
 export const Modal = ({
   isOpen,
@@ -37,7 +37,7 @@ export const Modal = ({
       });
     } else {
       if (dialog.open) {
-        let timeoutId: NodeJS.Timeout;
+        let timeoutId: NodeJS.Timeout | undefined;
         // Wait a frame to ensure current state is applied
         const rafId = requestAnimationFrame(() => {
           // Trigger closing animation - keep isAnimating true briefly to maintain state
@@ -78,7 +78,9 @@ export const Modal = ({
     };
 
     dialog.addEventListener("cancel", handleCancel);
-    return () => dialog.removeEventListener("cancel", handleCancel);
+    return () => {
+      dialog.removeEventListener("cancel", handleCancel);
+    };
   }, [onClose]);
 
   return (
@@ -87,7 +89,7 @@ export const Modal = ({
       className={clsx(
         styles.dialog,
         isAnimating && styles.open,
-        isClosing && styles.closing
+        isClosing && styles.closing,
       )}
       onClick={(e) => {
         const dialog = dialogRef.current;

@@ -2,16 +2,16 @@ import styles from "./ProductGrid.module.css";
 import type { Product } from "../../types";
 import { ProductCard } from "../ProductCard";
 
-export type ProductGridItem = {
+export interface ProductGridItem {
   product: Product;
   quantity: number;
-};
+}
 
-type ProductGridProps = {
+interface ProductGridProps {
   items: ProductGridItem[];
   onDecrement: (product: Product) => void;
   onIncrement: (product: Product) => void;
-};
+}
 
 export const ProductGrid = ({
   items,
@@ -25,8 +25,12 @@ export const ProductGrid = ({
           key={item.product.id}
           product={item.product}
           quantity={item.quantity}
-          onDecrement={() => onDecrement(item.product)}
-          onIncrement={() => onIncrement(item.product)}
+          onDecrement={() => {
+            onDecrement(item.product);
+          }}
+          onIncrement={() => {
+            onIncrement(item.product);
+          }}
         />
       ))}
     </div>

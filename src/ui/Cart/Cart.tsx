@@ -23,9 +23,9 @@ const EmptyCart = () => {
   );
 };
 
-export type OrderTotalProps = {
+export interface OrderTotalProps {
   items: CartItem[];
-};
+}
 
 export const OrderTotal = ({ items }: OrderTotalProps) => {
   const orderTotal = items
