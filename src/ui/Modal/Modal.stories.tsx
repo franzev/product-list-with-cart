@@ -31,13 +31,21 @@ export const Default: Story = {
 
       return (
         <>
-          <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+          <Button
+            onClick={() => {
+              setIsOpen(true);
+            }}
+          >
+            Open Modal
+          </Button>
           <Story
             args={
               {
                 ...args,
                 isOpen,
-                onClose: () => setIsOpen(false),
+                onClose: () => {
+                  setIsOpen(false);
+                },
               } as typeof args
             }
           />
@@ -70,19 +78,29 @@ export const WithOrderConfirmed: Story = {
 
       return (
         <>
-          <Button onClick={() => setIsOpen(true)}>Confirm Order</Button>
+          <Button
+            onClick={() => {
+              setIsOpen(true);
+            }}
+          >
+            Confirm Order
+          </Button>
           <Story
             args={
               {
                 ...args,
                 isOpen,
-                onClose: () => setIsOpen(false),
+                onClose: () => {
+                  setIsOpen(false);
+                },
                 titleId: "order-confirmed-title",
                 descriptionId: "order-confirmed-description",
                 children: (
                   <OrderConfirmed
                     items={multipleItemsCart}
-                    onStartNewOrder={() => setIsOpen(false)}
+                    onStartNewOrder={() => {
+                      setIsOpen(false);
+                    }}
                   />
                 ),
               } as typeof args
