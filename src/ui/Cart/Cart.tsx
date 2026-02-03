@@ -58,6 +58,7 @@ export const CartSection = ({
   return (
     <aside
       className={styles.base}
+      role="complementary"
       aria-labelledby="cart-heading"
       aria-live="polite"
     >
