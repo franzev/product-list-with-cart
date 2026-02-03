@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  width: 160px;
+  width: 10rem;
   height: auto;
 }
 
@@ -9,7 +9,7 @@
   font-weight: var(--text-preset-3-weight);
   font-size: var(--text-preset-3-size);
   line-height: 0;
-  width: 160px;
+  width: 10rem;
   border-radius: 9999px;
 }
 
