@@ -19,7 +19,7 @@ export const ProductGrid = ({
   onIncrement,
 }: ProductGridProps) => {
   return (
-    <div className={styles.base} aria-label="Product list">
+    <div className={styles.base}>
       {items.map((item) => (
         <ProductCard
           key={item.product.id}
