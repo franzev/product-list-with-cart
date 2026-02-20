@@ -32,7 +32,7 @@ const Controls = ({
         styles.base,
         styles.withCount,
         styles.controls,
-        className
+        className,
       )}
       role="group"
       aria-label={`Quantity controls for ${product.name}`}
@@ -94,7 +94,7 @@ export const AddToCart = ({
         className={clsx(
           styles.base,
           styles.empty,
-          quantity === 0 ? styles.visible : styles.hidden
+          quantity === 0 ? styles.visible : styles.hidden,
         )}
         onClick={isAddToCartHidden ? undefined : onIncrement}
         aria-label={addToCartLabel}
